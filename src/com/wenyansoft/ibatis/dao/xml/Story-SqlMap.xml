@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap namespace="Story">  
+    <!-- 使用别名可以避免每次都输入类路径全称 -->  
+    <resultMap id="story" class="com.wenyansoft.ibatis.entry.Story">
+		<result column="id" property="id"/>
+		<result column="story_name" property="storyName" />
+		<result column="play_num" property="playNum" />
+		<result column="praise_num" property="praiseNum" />
+		<result column="content" property="content" />
+		<result column="audio_url" property="audioUrl" />
+		<result column="img_url" property="imgUrl" />
+		<result column="dt" property="dt" />
+		<result column="mark" property="mark" />
+	</resultMap>
+    <!-- 根据id查询用户信息 -->  
+    <insert id="saveStory" parameterClass="com.wenyansoft.ibatis.entry.Story">
+		INSERT INTO	story(story_name,play_num,praise_num,content,audio_url,img_url,dt,mark)
+		VALUES(#storyName#,#playNum#,#praiseNum#,#content#,#audioUrl#,#imgUrl#,#dt#,#mark#)
+	</insert>
+	<select id="findStoryList" parameterClass="string" resultMap="story">
+		SELECT id,story_name,play_num,praise_num,content,audio_url,img_url,dt,mark FROM story order By id desc
+	</select>
+	<select id="findStoryById" parameterClass="java.util.Map" resultMap="story">
+		SELECT id,story_name,play_num,praise_num,content,audio_url,img_url,dt,mark FROM story where id = #id#
+	</select>
+	<update id="updateStoryById" parameterClass="com.wenyansoft.ibatis.entry.Story">
+		UPDATE story
+		SET play_num = #playNum#, praise_num = #praiseNum#
+		WHERE id = #id#
+	</update>
+</sqlMap>

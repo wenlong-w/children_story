@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"    
+"http://www.ibatis.com/dtd/sql-map-config-2.dtd">  
+<sqlMapConfig>  
+    <settings enhancementEnabled="true"	lazyLoadingEnabled="true" maxRequests="512"
+		maxSessions="128" maxTransactions="32" useStatementNamespaces="false" />
+    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/Story-SqlMap.xml"/> <!-- 对各SqlMap 文件的引用 --> 
+    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/UserInfo-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/UserCollect-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/Diary-SqlMap.xml"/> 
+</sqlMapConfig>
