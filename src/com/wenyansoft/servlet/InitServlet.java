@@ -92,7 +92,6 @@ public class InitServlet extends HttpServlet {
 	 * @throws ServletException if an error occurs
 	 */
 	public void init() throws ServletException {
-		// Put your code here
 		String wypath = FileUtility.getAbsolutePathFromClassPath(
 				"/wenyansoft.properties", InitServlet.class);
 		try {

@@ -6,6 +6,7 @@
 		<result column="id" property="id"/>
 		<result column="story_name" property="storyName" />
 		<result column="play_num" property="playNum" />
+		<result column="play_time" property="playTime" />
 		<result column="praise_num" property="praiseNum" />
 		<result column="content" property="content" />
 		<result column="audio_url" property="audioUrl" />
@@ -15,14 +16,14 @@
 	</resultMap>
     <!-- 根据id查询用户信息 -->  
     <insert id="saveStory" parameterClass="com.wenyansoft.ibatis.entry.Story">
-		INSERT INTO	story(story_name,play_num,praise_num,content,audio_url,img_url,dt,mark)
-		VALUES(#storyName#,#playNum#,#praiseNum#,#content#,#audioUrl#,#imgUrl#,#dt#,#mark#)
+		INSERT INTO	story(story_name,play_num,play_time,praise_num,content,audio_url,img_url,dt,mark)
+		VALUES(#storyName#,#playNum#,#playTime#,#praiseNum#,#content#,#audioUrl#,#imgUrl#,#dt#,#mark#)
 	</insert>
 	<select id="findStoryList" parameterClass="string" resultMap="story">
-		SELECT id,story_name,play_num,praise_num,content,audio_url,img_url,dt,mark FROM story order By id desc
+		SELECT id,story_name,play_num,play_time,praise_num,content,audio_url,img_url,dt,mark FROM story order By id desc
 	</select>
 	<select id="findStoryById" parameterClass="java.util.Map" resultMap="story">
-		SELECT id,story_name,play_num,praise_num,content,audio_url,img_url,dt,mark FROM story where id = #id#
+		SELECT id,story_name,play_num,play_time,praise_num,content,audio_url,img_url,dt,mark FROM story where id = #id#
 	</select>
 	<update id="updateStoryById" parameterClass="com.wenyansoft.ibatis.entry.Story">
 		UPDATE story

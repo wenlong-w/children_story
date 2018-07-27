@@ -8,6 +8,7 @@ public class Story implements java.io.Serializable {
 	private Integer id;
 	private String storyName;
 	private Integer playNum;
+	private String playTime;
 	private Integer praiseNum;
 	private String content;
 	private String audioUrl;
@@ -81,6 +82,14 @@ public class Story implements java.io.Serializable {
 
 	public void setMark(String mark) {
 		this.mark = mark;
+	}
+
+	public String getPlayTime() {
+		return playTime;
+	}
+
+	public void setPlayTime(String playTime) {
+		this.playTime = playTime;
 	}
 
 }
