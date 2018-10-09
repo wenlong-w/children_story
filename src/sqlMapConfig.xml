@@ -4,8 +4,14 @@
 <sqlMapConfig>  
     <settings enhancementEnabled="true"	lazyLoadingEnabled="true" maxRequests="512"
 		maxSessions="128" maxTransactions="32" useStatementNamespaces="false" />
-    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/Story-SqlMap.xml"/> <!-- 对各SqlMap 文件的引用 --> 
-    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/UserInfo-SqlMap.xml"/> 
-    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/UserCollect-SqlMap.xml"/> 
-    <sqlMap resource="com/wenyansoft/ibatis/dao/xml/Diary-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/everyday/ibatis/dao/xml/Story-SqlMap.xml"/> <!-- 对各SqlMap 文件的引用 --> 
+    <sqlMap resource="com/wenyansoft/everyday/ibatis/dao/xml/UserInfo-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/everyday/ibatis/dao/xml/UserCollect-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/everyday/ibatis/dao/xml/Diary-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/everyday/ibatis/dao/xml/StoryInfo-SqlMap.xml"/> 
+    
+    <sqlMap resource="com/wenyansoft/sugarbean/ibatis/dao/xml/TDStory-SqlMap.xml"/>
+    <sqlMap resource="com/wenyansoft/sugarbean/ibatis/dao/xml/TDUserInfo-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/sugarbean/ibatis/dao/xml/Audio-SqlMap.xml"/> 
+    <sqlMap resource="com/wenyansoft/sugarbean/ibatis/dao/xml/TDUserCollect-SqlMap.xml"/>
 </sqlMapConfig>

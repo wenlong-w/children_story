@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap namespace="TDStory">  
+    <!-- 使用别名可以避免每次都输入类路径全称 -->  
+    <resultMap id="story" class="com.wenyansoft.sugarbean.ibatis.entity.TDStory">
+		<result column="id" property="id"/>
+		<result column="story_name" property="storyName" />
+		<result column="name_str" property="nameStr" />
+		<result column="content" property="content" />
+		<result column="type" property="type" />
+		<result column="audio_url" property="audioUrl" />
+		<result column="img_url" property="imgUrl" />
+		<result column="cont_img" property="contImg" />
+		<result column="play_num" property="playNum" />
+		<result column="play_time" property="playTime" />
+		<result column="count" property="count" />
+		<result column="dt" property="dt" />
+	</resultMap>
+    <!-- 根据id查询用户信息 -->  
+    <insert id="saveTDStory" parameterClass="com.wenyansoft.sugarbean.ibatis.entity.TDStory">
+		INSERT INTO	td_story(story_name,name_str,content,type,audio_url,img_url,cont_img,play_num,play_time,count,dt)
+		VALUES(#storyName#,#nameStr#,#content#,#type#,#audioUrl#,#imgUrl#,#contImg#,#playNum#,#playTime#,#count#,#dt#)
+	</insert>
+	<select id="findTDStoryList" resultMap="story">
+		SELECT id,story_name,name_str,content,type,audio_url,img_url,cont_img,play_num,play_time,count,dt 
+		FROM td_story order By id desc
+	</select>
+	<select id="findTDStoryById" parameterClass="java.util.Map" resultMap="story">
+		SELECT id,story_name,name_str,content,type,audio_url,img_url,cont_img,play_num,play_time,count,dt 
+		FROM td_story where id = #id#
+	</select>
+	<update id="updateTDStoryById" parameterClass="com.wenyansoft.sugarbean.ibatis.entity.TDStory">
+		UPDATE td_story
+		SET play_num = #playNum#
+		WHERE id = #id#
+	</update>
+</sqlMap>

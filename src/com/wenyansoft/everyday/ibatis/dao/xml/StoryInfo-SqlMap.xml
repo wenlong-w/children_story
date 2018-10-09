@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap namespace="StoryInfo">  
+    <!-- 使用别名可以避免每次都输入类路径全称 -->  
+    <resultMap id="storyInfo" class="com.wenyansoft.everyday.ibatis.entry.StoryInfo">
+		<result column="id" property="id"/>
+		<result column="story_key" property="storyKey" />
+		<result column="story_value" property="storyValue" />
+	</resultMap>
+	<select id="findByKey" parameterClass="java.util.Map" resultMap="storyInfo">
+		SELECT id,story_key,story_value from story_info where story_key = #storyKey#
+	</select>
+</sqlMap>

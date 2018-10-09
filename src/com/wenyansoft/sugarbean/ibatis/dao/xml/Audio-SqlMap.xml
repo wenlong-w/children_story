@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap namespace="Audio">  
+    <!-- 使用别名可以避免每次都输入类路径全称 -->  
+    <resultMap id="audio" class="com.wenyansoft.sugarbean.ibatis.entity.Audio">
+		<result column="id" property="id"/>
+		<result column="audio_name" property="audioName" />
+		<result column="name_str" property="nameStr" />
+		<result column="audio_url" property="audioUrl" />
+		<result column="img_url" property="imgUrl" />
+		<result column="play_time" property="playTime" />
+		<result column="play_num" property="playNum" />
+		<result column="dt" property="dt" />
+	</resultMap>
+    <!-- 根据id查询用户信息 -->  
+    <insert id="saveAudio" parameterClass="com.wenyansoft.sugarbean.ibatis.entity.Audio">
+		INSERT INTO	audio(audio_name,name_str,audio_url,img_url,play_time,play_num,dt)
+		VALUES(#audioName#,#nameStr#,#audioUrl#,#imgUrl#,#playTime#,#playNum#,#dt#)
+	</insert>
+	<select id="findAudioList" parameterClass="HashMap" resultMap="audio">
+		SELECT id,audio_name,name_str,audio_url,img_url,play_time,play_num,dt 
+		FROM audio 
+		WHERE name_str = #nameStr#
+		order By id desc
+	</select>
+	<select id="findAudioById" parameterClass="java.util.Map" resultMap="audio">
+		SELECT id,audio_name,name_str,audio_url,img_url,play_time,play_num,dt FROM audio where id = #id#
+	</select>
+	<update id="updateAudioById" parameterClass="com.wenyansoft.sugarbean.ibatis.entity.Audio">
+		UPDATE audio
+		SET play_num = #playNum#
+		WHERE id = #id#
+	</update>
+</sqlMap>

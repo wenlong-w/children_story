@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap namespace="Diary">  
+    <!-- 使用别名可以避免每次都输入类路径全称 -->  
+    <resultMap id="diary" class="com.wenyansoft.everyday.ibatis.entry.Diary">
+		<result column="id" property="id"/>
+		<result column="content" property="content" />
+		<result column="gender" property="gender" />
+		<result column="dt" property="dt" />
+	</resultMap>
+    <!-- 根据id查询用户信息 -->  
+    <insert id="saveDiary" parameterClass="com.wenyansoft.everyday.ibatis.entry.Diary">
+		INSERT INTO	diary(content,gender,dt)
+		VALUES(#content#,#gender#,#dt#)
+	</insert>
+	<select id="findDiaryList" parameterClass="string" resultMap="diary">
+		SELECT id,content,gender,dt FROM diary order By id desc
+	</select>
+</sqlMap>
